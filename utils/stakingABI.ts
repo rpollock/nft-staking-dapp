@@ -1,123 +1,101 @@
 export const stakingABI = [
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_nativeTokenWrapper",
+          "type": "address"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "ContractMetadataUnauthorized",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "expected",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "actual",
+          "type": "uint256"
+        }
+      ],
+      "name": "CurrencyTransferLibMismatchedValue",
+      "type": "error"
     },
     {
       "inputs": [
         {
           "internalType": "address",
-          "name": "recipient",
+          "name": "account",
           "type": "address"
         },
         {
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
         }
       ],
-      "name": "CurrencyTransferLibFailedNativeTransfer",
+      "name": "PermissionsAlreadyGranted",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "expected",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "actual",
+          "type": "address"
+        }
+      ],
+      "name": "PermissionsInvalidPermission",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "neededRole",
+          "type": "bytes32"
+        }
+      ],
+      "name": "PermissionsUnauthorizedAccount",
       "type": "error"
     },
     {
       "anonymous": false,
       "inputs": [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
+          "indexed": false,
+          "internalType": "string",
+          "name": "prevURI",
+          "type": "string"
         },
         {
           "indexed": false,
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
+          "internalType": "string",
+          "name": "newURI",
+          "type": "string"
         }
       ],
-      "name": "Approval",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "delegator",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "fromDelegate",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "toDelegate",
-          "type": "address"
-        }
-      ],
-      "name": "DelegateChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "delegate",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "previousBalance",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "newBalance",
-          "type": "uint256"
-        }
-      ],
-      "name": "DelegateVotesChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "EIP712DomainChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "platformFeeRecipient",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "flatFee",
-          "type": "uint256"
-        }
-      ],
-      "name": "FlatPlatformFeeUpdated",
+      "name": "ContractURIUpdated",
       "type": "event"
     },
     {
@@ -137,45 +115,45 @@ export const stakingABI = [
       "anonymous": false,
       "inputs": [
         {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardTokensDepositedByAdmin",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardTokensWithdrawnByAdmin",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
           "indexed": true,
           "internalType": "address",
-          "name": "platformFeeRecipient",
+          "name": "staker",
           "type": "address"
         },
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "platformFeeBps",
+          "name": "rewardAmount",
           "type": "uint256"
         }
       ],
-      "name": "PlatformFeeInfoUpdated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "enum IPlatformFee.PlatformFeeType",
-          "name": "feeType",
-          "type": "uint8"
-        }
-      ],
-      "name": "PlatformFeeTypeUpdated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "recipient",
-          "type": "address"
-        }
-      ],
-      "name": "PrimarySaleRecipientUpdated",
+      "name": "RewardsClaimed",
       "type": "event"
     },
     {
@@ -259,17 +237,17 @@ export const stakingABI = [
         {
           "indexed": true,
           "internalType": "address",
-          "name": "mintedTo",
+          "name": "staker",
           "type": "address"
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "quantityMinted",
-          "type": "uint256"
+          "indexed": true,
+          "internalType": "uint256[]",
+          "name": "tokenIds",
+          "type": "uint256[]"
         }
       ],
-      "name": "TokensMinted",
+      "name": "TokensStaked",
       "type": "event"
     },
     {
@@ -278,104 +256,56 @@ export const stakingABI = [
         {
           "indexed": true,
           "internalType": "address",
-          "name": "signer",
+          "name": "staker",
           "type": "address"
         },
         {
           "indexed": true,
-          "internalType": "address",
-          "name": "mintedTo",
-          "type": "address"
-        },
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "to",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "primarySaleRecipient",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "quantity",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "price",
-              "type": "uint256"
-            },
-            {
-              "internalType": "address",
-              "name": "currency",
-              "type": "address"
-            },
-            {
-              "internalType": "uint128",
-              "name": "validityStartTimestamp",
-              "type": "uint128"
-            },
-            {
-              "internalType": "uint128",
-              "name": "validityEndTimestamp",
-              "type": "uint128"
-            },
-            {
-              "internalType": "bytes32",
-              "name": "uid",
-              "type": "bytes32"
-            }
-          ],
-          "indexed": false,
-          "internalType": "struct ITokenERC20.MintRequest",
-          "name": "mintRequest",
-          "type": "tuple"
+          "internalType": "uint256[]",
+          "name": "tokenIds",
+          "type": "uint256[]"
         }
       ],
-      "name": "TokensMintedWithSignature",
+      "name": "TokensWithdrawn",
       "type": "event"
     },
     {
       "anonymous": false,
       "inputs": [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldRewardsPerUnitTime",
+          "type": "uint256"
         },
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "value",
+          "name": "newRewardsPerUnitTime",
           "type": "uint256"
         }
       ],
-      "name": "Transfer",
+      "name": "UpdatedRewardsPerUnitTime",
       "type": "event"
     },
     {
-      "inputs": [],
-      "name": "CLOCK_MODE",
-      "outputs": [
+      "anonymous": false,
+      "inputs": [
         {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldTimeUnit",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newTimeUnit",
+          "type": "uint256"
         }
       ],
-      "stateMutability": "view",
-      "type": "function"
+      "name": "UpdatedTimeUnit",
+      "type": "event"
     },
     {
       "inputs": [],
@@ -392,175 +322,9 @@ export const stakingABI = [
     },
     {
       "inputs": [],
-      "name": "DEFAULT_FEE_RECIPIENT",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "DOMAIN_SEPARATOR",
-      "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
-        }
-      ],
-      "name": "allowance",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "approve",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "balanceOf",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "burn",
+      "name": "claimRewards",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "burnFrom",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint32",
-          "name": "pos",
-          "type": "uint32"
-        }
-      ],
-      "name": "checkpoints",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "uint32",
-              "name": "fromBlock",
-              "type": "uint32"
-            },
-            {
-              "internalType": "uint224",
-              "name": "votes",
-              "type": "uint224"
-            }
-          ],
-          "internalType": "struct ERC20VotesUpgradeable.Checkpoint",
-          "name": "",
-          "type": "tuple"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "clock",
-      "outputs": [
-        {
-          "internalType": "uint48",
-          "name": "",
-          "type": "uint48"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -603,188 +367,21 @@ export const stakingABI = [
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "decimals",
-      "outputs": [
-        {
-          "internalType": "uint8",
-          "name": "",
-          "type": "uint8"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
-        },
-        {
           "internalType": "uint256",
-          "name": "subtractedValue",
+          "name": "_amount",
           "type": "uint256"
         }
       ],
-      "name": "decreaseAllowance",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "delegatee",
-          "type": "address"
-        }
-      ],
-      "name": "delegate",
+      "name": "depositRewardTokens",
       "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "delegatee",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "nonce",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "expiry",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint8",
-          "name": "v",
-          "type": "uint8"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "r",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "s",
-          "type": "bytes32"
-        }
-      ],
-      "name": "delegateBySig",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "delegates",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
+      "stateMutability": "payable",
       "type": "function"
     },
     {
       "inputs": [],
-      "name": "eip712Domain",
-      "outputs": [
-        {
-          "internalType": "bytes1",
-          "name": "fields",
-          "type": "bytes1"
-        },
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "version",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "chainId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "verifyingContract",
-          "type": "address"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "salt",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "uint256[]",
-          "name": "extensions",
-          "type": "uint256[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "timepoint",
-          "type": "uint256"
-        }
-      ],
-      "name": "getPastTotalSupply",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "timepoint",
-          "type": "uint256"
-        }
-      ],
-      "name": "getPastVotes",
+      "name": "getRewardTokenBalance",
       "outputs": [
         {
           "internalType": "uint256",
@@ -797,17 +394,12 @@ export const stakingABI = [
     },
     {
       "inputs": [],
-      "name": "getPlatformFeeInfo",
+      "name": "getRewardsPerUnitTime",
       "outputs": [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        },
-        {
-          "internalType": "uint16",
-          "name": "",
-          "type": "uint16"
+          "internalType": "uint256",
+          "name": "_rewardsPerUnitTime",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -849,7 +441,7 @@ export const stakingABI = [
       "outputs": [
         {
           "internalType": "address",
-          "name": "",
+          "name": "member",
           "type": "address"
         }
       ],
@@ -868,7 +460,7 @@ export const stakingABI = [
       "outputs": [
         {
           "internalType": "uint256",
-          "name": "",
+          "name": "count",
           "type": "uint256"
         }
       ],
@@ -879,15 +471,33 @@ export const stakingABI = [
       "inputs": [
         {
           "internalType": "address",
-          "name": "account",
+          "name": "_staker",
           "type": "address"
         }
       ],
-      "name": "getVotes",
+      "name": "getStakeInfo",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_tokensStaked",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_rewards",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTimeUnit",
       "outputs": [
         {
           "internalType": "uint256",
-          "name": "",
+          "name": "_timeUnit",
           "type": "uint256"
         }
       ],
@@ -939,17 +549,17 @@ export const stakingABI = [
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
         },
         {
-          "internalType": "uint256",
-          "name": "addedValue",
-          "type": "uint256"
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
         }
       ],
-      "name": "increaseAllowance",
+      "name": "hasRoleWithSwitch",
       "outputs": [
         {
           "internalType": "bool",
@@ -957,7 +567,26 @@ export const stakingABI = [
           "type": "bool"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "indexedTokens",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -966,16 +595,6 @@ export const stakingABI = [
           "internalType": "address",
           "name": "_defaultAdmin",
           "type": "address"
-        },
-        {
-          "internalType": "string",
-          "name": "_name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_symbol",
-          "type": "string"
         },
         {
           "internalType": "string",
@@ -989,23 +608,47 @@ export const stakingABI = [
         },
         {
           "internalType": "address",
-          "name": "_primarySaleRecipient",
+          "name": "_rewardToken",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_platformFeeRecipient",
+          "name": "_stakingToken",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_platformFeeBps",
+          "name": "_timeUnit",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_rewardsPerUnitTime",
           "type": "uint256"
         }
       ],
       "name": "initialize",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "isIndexed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -1030,84 +673,6 @@ export const stakingABI = [
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "mintTo",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "to",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "primarySaleRecipient",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "quantity",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "price",
-              "type": "uint256"
-            },
-            {
-              "internalType": "address",
-              "name": "currency",
-              "type": "address"
-            },
-            {
-              "internalType": "uint128",
-              "name": "validityStartTimestamp",
-              "type": "uint128"
-            },
-            {
-              "internalType": "uint128",
-              "name": "validityEndTimestamp",
-              "type": "uint128"
-            },
-            {
-              "internalType": "bytes32",
-              "name": "uid",
-              "type": "bytes32"
-            }
-          ],
-          "internalType": "struct ITokenERC20.MintRequest",
-          "name": "_req",
-          "type": "tuple"
-        },
-        {
-          "internalType": "bytes",
-          "name": "_signature",
-          "type": "bytes"
-        }
-      ],
-      "name": "mintWithSignature",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
           "internalType": "bytes[]",
           "name": "data",
           "type": "bytes[]"
@@ -1125,107 +690,34 @@ export const stakingABI = [
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "name",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "address",
-          "name": "owner",
+          "name": "",
           "type": "address"
-        }
-      ],
-      "name": "nonces",
-      "outputs": [
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
         {
           "internalType": "uint256",
           "name": "",
           "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
+        },
         {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
         }
       ],
-      "name": "numCheckpoints",
+      "name": "onERC721Received",
       "outputs": [
         {
-          "internalType": "uint32",
+          "internalType": "bytes4",
           "name": "",
-          "type": "uint32"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "spender",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "value",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "deadline",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint8",
-          "name": "v",
-          "type": "uint8"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "r",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "s",
-          "type": "bytes32"
-        }
-      ],
-      "name": "permit",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "primarySaleRecipient",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
+          "type": "bytes4"
         }
       ],
       "stateMutability": "view",
@@ -1268,6 +760,19 @@ export const stakingABI = [
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "rewardToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "string",
@@ -1283,17 +788,12 @@ export const stakingABI = [
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "_platformFeeRecipient",
-          "type": "address"
-        },
-        {
           "internalType": "uint256",
-          "name": "_platformFeeBps",
+          "name": "_rewardsPerUnitTime",
           "type": "uint256"
         }
       ],
-      "name": "setPlatformFeeInfo",
+      "name": "setRewardsPerUnitTime",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -1301,14 +801,112 @@ export const stakingABI = [
     {
       "inputs": [
         {
+          "internalType": "uint256",
+          "name": "_timeUnit",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTimeUnit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_tokenIds",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "stake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "stakerAddress",
+      "outputs": [
+        {
           "internalType": "address",
-          "name": "_saleRecipient",
+          "name": "",
           "type": "address"
         }
       ],
-      "name": "setPrimarySaleRecipient",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "stakers",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "amountStaked",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint64",
+          "name": "conditionIdOflastUpdate",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint128",
+          "name": "timeOfLastUpdate",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint256",
+          "name": "unclaimedRewards",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "stakersArray",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakingToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -1331,153 +929,33 @@ export const stakingABI = [
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "symbol",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "totalSupply",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
+          "internalType": "uint256[]",
+          "name": "_tokenIds",
+          "type": "uint256[]"
         }
       ],
-      "name": "transfer",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
+      "name": "withdraw",
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
           "internalType": "uint256",
-          "name": "amount",
+          "name": "_amount",
           "type": "uint256"
         }
       ],
-      "name": "transferFrom",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
+      "name": "withdrawRewardTokens",
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "to",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "primarySaleRecipient",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "quantity",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "price",
-              "type": "uint256"
-            },
-            {
-              "internalType": "address",
-              "name": "currency",
-              "type": "address"
-            },
-            {
-              "internalType": "uint128",
-              "name": "validityStartTimestamp",
-              "type": "uint128"
-            },
-            {
-              "internalType": "uint128",
-              "name": "validityEndTimestamp",
-              "type": "uint128"
-            },
-            {
-              "internalType": "bytes32",
-              "name": "uid",
-              "type": "bytes32"
-            }
-          ],
-          "internalType": "struct ITokenERC20.MintRequest",
-          "name": "_req",
-          "type": "tuple"
-        },
-        {
-          "internalType": "bytes",
-          "name": "_signature",
-          "type": "bytes"
-        }
-      ],
-      "name": "verify",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        },
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      "stateMutability": "payable",
+      "type": "receive"
     }
   ] as const;

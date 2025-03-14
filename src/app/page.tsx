@@ -14,7 +14,8 @@ export default function Home() {
       margin: "20px auto",
       width: "500px",
     }}>
-      <h1>ERC-721 Staking App</h1>
+      <h1>Cool Pixel Turtle Staking Dapp</h1>
+      <br />
       <ConnectEmbed
         client={client}
         chain={chain}
