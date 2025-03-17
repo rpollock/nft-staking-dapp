@@ -27,15 +27,14 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
                     width: "200px"
                 }}
             />
-            <p style={{ margin: "0 10px 10px 10px"}}>{nft.metadata.name}</p>
+            <p className="o-p" style={{ margin: "0 10px 10px 10px"}}>{nft.metadata.name}</p>
             <button
                 onClick={() => setIsModalOpen(true)}
+                className="s-but"
                 style={{
                     border: "none",
-                    backgroundColor: "#333",
-                    color: "#fff",
                     padding: "10px",
-                    borderRadius: "10px",
+                    borderRadius: "5px",
                     cursor: "pointer",
                     width: "100%"
                 }}

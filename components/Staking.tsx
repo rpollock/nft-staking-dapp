@@ -65,7 +65,9 @@ export const Staking = () => {
                 borderRadius: "8px",
                 width: "800px",
                 padding: "20px",
-            }}>
+            }}
+            className="main-c"
+            >
                 <ConnectButton
                     client={client}
                     chain={chain}
@@ -141,7 +143,7 @@ export const Staking = () => {
                                 />
                             ))
                         ) : (
-                            <p style={{ margin: "20px" }}>No NFTs staked</p>
+                            <p className="s-nft" style={{ margin: "20px" }}>No NFTs staked</p>
                         )}
                     </div>
                 </div>
