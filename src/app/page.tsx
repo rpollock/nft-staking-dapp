@@ -4,7 +4,6 @@ import { chain } from "./chain";
 import { Staking } from "../../components/Staking";
 
 
-
 export default function Home() {
   return (
     <div style={{
@@ -14,7 +13,8 @@ export default function Home() {
       margin: "20px auto",
       width: "500px",
     }}>
-      <h1>Cool Pixel Turtle Staking Dapp</h1>
+      
+      <h1 className="title-hed">Cool Pixel Turtle Staking Dapp</h1>
       <br />
       <ConnectEmbed
         client={client}
