@@ -122,7 +122,7 @@ export const Staking = () => {
                                 />
                             ))
                         ) : (
-                            <p>You own 0 NFTs</p>
+                            <p className="p-k">You own 0 NFTs</p>
                         )}
                     </div>
                 </div>

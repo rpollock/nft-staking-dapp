@@ -54,15 +54,17 @@ export const StakeRewards = () => {
                     refetchStakedInfo();
                     refetchTokenBalance();
                 }}
+                className="claim-but"
                 style={{
                     border: "none",
-                    backgroundColor: "#333",
+                    backgroundColor: "#b388ff",
                     color: "#fff",
                     padding: "10px",
                     borderRadius: "10px",
                     cursor: "pointer",
                     width: "100%",
-                    fontSize: "12px"
+                    fontSize: "1.5rem",
+                    fontFamily: "kemco"
                 }}
             >Claim Rewards</TransactionButton>
         </div>

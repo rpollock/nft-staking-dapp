@@ -16,7 +16,7 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
     const [isApproved, setIsApproved] = useState(false);
 
     return (
-        <div style={{ margin: "10px" }}>
+        <div className="owned-nft-div" style={{ margin: "10px" }}>
             <MediaRenderer
                 client={client}
                 src={nft.metadata.image}
@@ -75,7 +75,7 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
                                 }}
                             >Close</button>
                         </div>
-                        <h3 style={{ margin: "10px 0" }}>You about to stake:</h3>
+                        <h3 className="title-hed" style={{ margin: "10px 0" }}>Your about to stake:</h3>
                         <MediaRenderer
                             client={client}
                             src={nft.metadata.image}
@@ -93,6 +93,7 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
                                         tokenId: nft.id
                                     })
                                 )}
+                                className="a-but"
                                 style={{
                                     width: "100%"
                                 }}
@@ -113,6 +114,7 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
                                     refetch();
                                     refecthStakedInfo();
                                 }}
+                                className="a-but"
                                 style={{
                                     width: "100%"
                                 }}

@@ -57,27 +57,73 @@ a {
 }
 
 .o-p {
-  text-align: center;
+  font-family: "kemco", sans-serif;
+  text-align: center !important;
+  
+}
+
+.p-k {
+  font-family: "kemco", sans-serif;
 }
 
 .s-but {
-  background: #ffc20e;
-  color: #ff0b0b;
+  background: #ffc20e !important;
+  color: #ff0b0b !important;
   border: none;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   text-transform: uppercase;
   text-decoration: none;
   text-shadow: none;
-  margin-top: 20px;
-  box-shadow: 2px 2px 0px #c49512; 
-  font-family: "kemco", sans-serif;
-  max-width: 200px;
+  margin-top: 20px !important;
+  box-shadow: 2px 2px 0px #c49512 !important; 
+  font-family: "kemco", sans-serif !important;
+  max-width: 200px !important;
 }
 
 .s-but:hover{
   background: #ffc20e;
   box-shadow: 1px 1px 0px #c49512;
+  transform: translate(1px, 1px);
+}
+
+.a-but {
+  background: #0e87ff !important;
+  color: #ffc20e !important;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  margin-top: 20px;
+  box-shadow: 2px 2px 0px #0a5198 !important; 
+  font-family: "kemco", sans-serif !important;
+  max-width: 200px;
+}
+
+.a-but:hover{
+  background: #0e87ff;
+  box-shadow: 1px 1px 0px #0a5198 !important;
+  transform: translate(1px, 1px);
+}
+
+.claim-but {
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  margin-top: 20px;
+  box-shadow: 2px 2px 0px #755aa5 !important; 
+  font-family: "kemco", sans-serif !important;
+  max-width: 200px;
+}
+
+.claim-but:hover {
+  background: #b388ff;
+  box-shadow: 2px 2px 0px #755aa5 !important;
   transform: translate(1px, 1px);
 }
 

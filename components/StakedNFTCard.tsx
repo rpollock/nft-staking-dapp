@@ -31,7 +31,7 @@ export const StakedNFTCard: React.FC<StakedNFTCardProps> = ({ tokenId, refetchSt
                     width: "200px"
                 }}
             />
-            <p style={{ margin: "0 10px 10px 10px"}}>{nft?.metadata.name}</p>
+            <p className="o-p" style={{ margin: "0 10px 10px 10px"}}>{nft?.metadata.name}</p>
             <TransactionButton
                 transaction={() => (
                     prepareContractCall({
@@ -40,6 +40,7 @@ export const StakedNFTCard: React.FC<StakedNFTCardProps> = ({ tokenId, refetchSt
                         params: [[tokenId]]
                     })
                 )}
+                className="s-but"
                 onTransactionConfirmed={() => {
                     refetchOwnedNFTs();
                     refetchStakedInfo();
@@ -47,13 +48,10 @@ export const StakedNFTCard: React.FC<StakedNFTCardProps> = ({ tokenId, refetchSt
                 }}
                 style={{
                     border: "none",
-                    backgroundColor: "#333",
-                    color: "#fff",
                     padding: "10px",
-                    borderRadius: "10px",
+                    borderRadius: "5px",
                     cursor: "pointer",
-                    width: "100%",
-                    fontSize: "12px"
+                    width: "100%"
                 }}
             >Withdraw</TransactionButton>
         </div>
